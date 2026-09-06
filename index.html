@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b16">
+  <meta name="description" content="Neon Tetris: el clásico juego de bloques, rápido y accesible.">
+  <title>Neon Tetris</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">ARCADE / 1984</p>
+        <h1>NEON<br><span>TETRIS</span></h1>
+      </div>
+      <button id="sound" class="icon-button" type="button" aria-label="Activar sonido" aria-pressed="false">♪</button>
+    </header>
+
+    <section class="game-layout" aria-label="Juego de Tetris">
+      <aside class="panel stats" aria-label="Marcador">
+        <div class="stat"><span>PUNTOS</span><strong id="score">000000</strong></div>
+        <div class="stat"><span>RÉCORD</span><strong id="high-score">000000</strong></div>
+        <div class="stat"><span>LÍNEAS</span><strong id="lines">0</strong></div>
+        <div class="stat"><span>NIVEL</span><strong id="level">1</strong></div>
+        <div class="mini-card">
+          <span>RESERVA <small>C</small></span>
+          <canvas id="hold" width="120" height="96" aria-label="Pieza reservada"></canvas>
+        </div>
+      </aside>
+
+      <div class="board-shell">
+        <canvas id="board" width="300" height="600" aria-label="Tablero de Tetris" role="img"></canvas>
+        <div id="overlay" class="overlay">
+          <p id="overlay-kicker">¿LISTO?</p>
+          <h2 id="overlay-title">NEON TETRIS</h2>
+          <p id="overlay-copy">Completa líneas. No dejes que los bloques lleguen arriba.</p>
+          <button id="start" class="primary-button" type="button">JUGAR</button>
+        </div>
+      </div>
+
+      <aside class="panel next-panel" aria-label="Próximas piezas">
+        <div class="mini-card next-card">
+          <span>SIGUIENTES</span>
+          <canvas id="next" width="120" height="300" aria-label="Próximas piezas"></canvas>
+        </div>
+        <div class="keys" aria-label="Controles de teclado">
+          <p><kbd>←</kbd><kbd>→</kbd> Mover</p>
+          <p><kbd>↑</kbd> Girar</p>
+          <p><kbd>↓</kbd> Bajar</p>
+          <p><kbd>ESP</kbd> Soltar</p>
+          <p><kbd>P</kbd> Pausa</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="touch-controls" aria-label="Controles táctiles">
+      <button type="button" data-action="left" aria-label="Mover a la izquierda">←</button>
+      <button type="button" data-action="down" aria-label="Bajar">↓</button>
+      <button type="button" data-action="right" aria-label="Mover a la derecha">→</button>
+      <button type="button" data-action="rotate" aria-label="Girar">↻</button>
+      <button type="button" data-action="drop" aria-label="Caída instantánea">⇊</button>
+      <button type="button" data-action="hold" aria-label="Reservar pieza">C</button>
+    </section>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
