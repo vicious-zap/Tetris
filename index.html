@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Neon Tetris</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="stars"></div>
+  <main class="shell">
+    <header><span class="eyebrow">ARCADE SYSTEM // ONLINE</span><h1>TE<span>TR</span>IS</h1></header>
+    <section id="menu" class="screen active">
+      <div class="hero-card"><div class="mini-grid" aria-hidden="true"></div><p>NEON BLOCK PROTOCOL</p>
+        <button id="play">PLAY</button><button id="show-controls" class="secondary">CONTROLS</button>
+      </div>
+    </section>
+    <section id="game" class="screen">
+      <div class="game-layout">
+        <aside class="side left-side">
+          <div class="panel"><h2>HOLD</h2><canvas id="hold" width="132" height="108"></canvas><span id="hold-lock" class="tag">READY</span></div>
+          <div class="panel sound"><h2>AUDIO</h2><button id="music">MUSIC <b>ON</b></button><button id="sfx">SFX <b>ON</b></button><label>VOLUME <input id="volume" type="range" min="0" max="1" step=".05" value=".45"></label></div>
+        </aside>
+        <div id="stage" class="stage">
+          <div class="board-frame"><canvas id="board" width="360" height="720" aria-label="Tablero de Tetris"></canvas><canvas id="effects" width="360" height="720"></canvas><div class="scanlines"></div></div>
+          <div id="countdown" class="center-message"></div><div id="toast" class="toast"></div>
+          <div id="pause-overlay" class="overlay"><h2>PAUSED</h2><button id="resume">RESUME</button><button id="restart-pause" class="secondary">RESTART</button></div>
+          <div id="over-overlay" class="overlay"><h2>GAME OVER</h2><div id="final-stats"></div><button id="again">PLAY AGAIN</button></div>
+        </div>
+        <aside class="side right-side">
+          <div class="panel"><h2>NEXT</h2><canvas id="next" width="132" height="108"></canvas></div>
+          <div class="panel stats"><div><h2>SCORE</h2><strong id="score">000000</strong></div><div><h2>LEVEL</h2><strong id="level">01</strong></div><div><h2>LINES</h2><strong id="lines">00</strong></div><div><h2>BEST</h2><strong id="best">000000</strong></div></div>
+        </aside>
+      </div>
+      <div class="controls-strip"><span>← → MOVE</span><span>↓ SOFT</span><span>SPACE DROP</span><span>↑ / X / Z ROTATE</span><span>C / SHIFT HOLD</span><span>P / ESC PAUSE</span><span>R RESTART</span></div>
+    </section>
+  </main>
+  <dialog id="controls-dialog"><button id="close-controls" aria-label="Cerrar">×</button><h2>CONTROLS</h2><div class="key-list"><b>← →</b><span>Move</span><b>↓</b><span>Soft Drop</span><b>SPACE</b><span>Hard Drop</span><b>↑ X / Z</b><span>Rotate CW / CCW</span><b>C SHIFT</b><span>Hold</span><b>P ESC</b><span>Pause</span><b>R</b><span>Restart</span></div></dialog>
+  <script type="module" src="src/main.js"></script>
+</body></html>
